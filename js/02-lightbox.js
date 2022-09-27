@@ -14,14 +14,22 @@ const createGalery = collection => {
     alt="${description}"/>
     </a>`;
         galaryDiv.insertAdjacentHTML('beforeend', addElements);
-    })
+    });
 }
 
-createGalery(galleryItems)
+createGalery(galleryItems);
+
+let galleryClick = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionSelector: 'img',
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionDelay: 250,
+});
 
 
-const onClick = evt => {
-    evt.preventDefault();
-    const lightbox = new SimpleLightbox('.gallery a', {captionsData:'alt',captionDelay:250});
-}
-galaryDiv.addEventListener('click', onClick);
+// const onClick = evt => {
+//     evt.preventDefault();
+//     const lightbox = new SimpleLightbox('.gallery a', {captionsData:'alt',captionDelay:250});
+// }
+// galaryDiv.addEventListener('click', onClick);
